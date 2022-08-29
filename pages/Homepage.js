@@ -188,20 +188,20 @@ const Homepage = () => {
                                         <form className="w-full" onSubmit={(e)=>e.preventDefault()}>
                                             <div className="flex flex-wrap mb-6">
                                                 <div className="w-full md mt-4 px-3 mb-6 md:mb-0">
-                                                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                                                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                                                         Name
                                                     </label>
                                                     <input name="name" value={invoice.name} onChange={handleOnChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border-none rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="" />
                                                 </div>
 
                                                 <div className="w-full mt-4 px-3 mb-6 md:mb-0">
-                                                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                                                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                                                         Due Date
                                                     </label>
                                                     <input name="dueDate" value={invoice.dueDate} onChange={handleOnChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border-none rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="date" placeholder="" />
                                                 </div>
                                                 <div className="w-full mt-4 px-3 mb-6 md:mb-0">
-                                                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                                                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                                                         Notes
                                                     </label>
                                                     <textarea name="notes" value={invoice.notes} onChange={handleOnChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border-none rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="" ></textarea>
@@ -273,8 +273,8 @@ const Homepage = () => {
                     </Transition.Root>
             </div>
             </div>
-            {isSuccess && dataM.reverse().map((item) => {
-                return (<div className='mt-5 flex justify-around items-center h-24 w-full rounded bg-gray-50 drop-shadow-sm'>
+            {isSuccess && dataM.reverse().map((item, i) => {
+                return (<div key={i} className='mt-5 flex justify-around items-center h-24 w-full rounded bg-gray-50 drop-shadow-sm'>
                     <p className='text-sm font-bold'>{"#" + item._id.slice(1, 4) + "..." + item._id.slice(-3)}</p>
                     <p className='text-sm font-light text-gray-400'>{moment(item.dueDate).format('DD-MM-YYYY')}</p>
                     <p className='text-sm font-light text-gray-400'>{item.name}</p>

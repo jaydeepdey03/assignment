@@ -73,50 +73,50 @@ const InvoiceDetails = () => {
                             <p className='text-gray-500' >Due Date: <span className='font-bold'>{moment(resultInvoice.dueDate).format('DD-MM-YYYY')}</span></p>
                         </div>
                     </div>
-                    <div class="flex flex-col">
-                        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                                <div class="overflow-hidden">
-                                    <table class="min-w-full">
+                    <div className="flex flex-col">
+                        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                                <div className="overflow-hidden">
+                                    <table className="min-w-full">
                                         <thead className="">
                                             <tr>
-                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     ID
                                                 </th>
-                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Product Name
                                                 </th>
-                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Quantity
                                                 </th>
-                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Amount
                                                 </th>
-                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     GST
                                                 </th>
-                                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                                     Price
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {resultInvoice[0].lineItem.map((item) => {
-                                                return (<tr className="border-b">
-                                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item._id.slice(0, 3) + "..." + item._id.slice(-3)}</td>
-                                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            {resultInvoice[0].lineItem.map((item, i) => {
+                                                return (<tr className="border-b" key={i}>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item._id.slice(0, 3) + "..." + item._id.slice(-3)}</td>
+                                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                         {item.productName}
                                                     </td>
-                                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                         {item.quantity}
                                                     </td>
-                                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                         {item.amount}
                                                     </td>
-                                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                         {item.gstRate}
                                                     </td>
-                                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                         {item.amount + (item.amount * ((item.gstRate) / 100))}
                                                     </td>
                                                 </tr>)
